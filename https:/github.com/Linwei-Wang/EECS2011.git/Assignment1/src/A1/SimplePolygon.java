@@ -1,0 +1,200 @@
+/**********************************************************
+ * EECS2011: Fundamentals of Data Structures,  Winter 2019
+ * Assignment 1: Polygon Hierarchy
+ * Section:  M  or  Z ?
+ * Student Name:   ?
+ * Student eecs account:  ?
+ * Student ID number:  ? 
+ **********************************************************/
+package A1;
+
+import java.awt.geom.Point2D;
+import java.util.Scanner;
+
+/**
+ * The class SimplePolygon implements the Polygon interface.
+ * 
+ * It is intended to be further extended by ConvexPolygon.
+ * 
+ * @author Andy Mirzaian
+ */
+public class SimplePolygon implements Polygon {
+
+	/********* protected fields ************************/
+
+	protected int n; // number of vertices of the polygon
+	protected Point2D.Double[] vertices; // vertices[0..n-1] around the polygon boundary
+
+	/********* protected constructors ******************/
+
+	/**
+	 * constructor used in the static factory method getNewPoly()
+	 * 
+	 * @param size
+	 *            number of edges (also vertices) of the polygon
+	 */
+	protected SimplePolygon(int size) {
+		n = size;
+		// TODO: place the rest of your code here
+		vertices = new Point2D.Double[n];
+	}
+
+	/** default no-parameter constructor */
+	protected SimplePolygon() {
+		// TODO: place your code here
+		n = 3;
+		vertices = new Point2D.Double[n];
+		double x = 1.0;
+		double y = 1.0;
+		double x1 = 1.5;
+		double y1 = 1.5;
+		double x2 = 2.0;
+		double y2 = 1.0;
+		SimplePolygon p = new SimplePolygon(3);
+		p.vertices[0] = new Point2D.Double(x, y);
+		p.vertices[1] = new Point2D.Double(x1, y1);
+		p.vertices[2] = new Point2D.Double(x2, y2);
+	}
+
+	/********* public getters & toString ***************/
+
+	/**
+	 * static factory method constructs and returns an unverified simple-polygon, initialised
+	 * according to user provided input data. Runs in O(n) time.
+	 * 
+	 * @return an unverified simple-polygon instance
+	 */
+	public static SimplePolygon getNewPoly() {
+		Scanner a = new Scanner(System.in);
+		String b = a.nextLine();
+		String[] aa = b.split(" ");
+		int size = Integer.parseInt(aa[0]);
+		a.close();
+		 // TODO: replace this line with your code
+		SimplePolygon p = new SimplePolygon(size);
+		p.vertices = new Point2D.Double[size];
+		// TODO: populate p.vertices[0..size-1] from input
+		for (int i = 1; i < size-1; i++) {
+			p.vertices[i-1] = new Point2D.Double(Double.parseDouble(aa[i]), Double.parseDouble(aa[i+1]));
+		}
+		return p;
+	}
+
+	/**
+	 * 
+	 * @return n, the number of edges (equivalently, vertices) of the polygon.
+	 */
+	public int getSize() {
+		return n;
+	}
+
+	/**
+	 * 
+	 * @param i
+	 *            index of the vertex.
+	 * @return the i-th vertex of the polygon.
+	 * @throws IndexOutOfBoundsException
+	 *             if {@code i < 0 || i >= n }.
+	 */
+	public Point2D.Double getVertex(int i) throws IndexOutOfBoundsException {
+		try {
+			return vertices[i]; 
+		}
+		catch (IndexOutOfBoundsException e)
+		{
+			System.out.println("IndexOutOfBoundsException catch");
+		}
+		return null; // TODO: replace this line with a try-catch code
+	}
+
+	/**
+	 * @return a String representation of the polygon in O(n) time.
+	 */
+	@Override
+	public String toString() {
+		String a = "";
+		for (int i = 0 ;i < n ; i++){
+			a = vertices[i] + "," ;
+		}
+		return a; // TODO: replace this line with your code
+	}
+
+	/************** utilities *********************/
+
+	/**
+	 * 
+	 * @param a
+	 * @param b
+	 * @param c
+	 *            three input points.
+	 * @return twice the signed area of the oriented triangle (a,b,c). Runs in O(1) time.
+	 */
+	public static double delta(Point2D.Double a, Point2D.Double b,
+			Point2D.Double c) {
+		return 0; // TODO: replace this line with your code
+	}
+
+	/**
+	 * @param a
+	 * @param b
+	 *            end points of line-segment (a,b).
+	 * @param c
+	 * @param d
+	 *            end points of line-segment (c,d).
+	 * @return true if closed line-segments (a,b) and (c,d) are disjoint. Runs in O(1) time.
+	 */
+	public static boolean disjointSegments(Point2D.Double a, Point2D.Double b,
+			Point2D.Double c, Point2D.Double d) {
+		return true; // TODO: replace this line with your code
+	}
+
+	/**
+	 * @param i
+	 * @param j
+	 *            indices of two edges of the polygon.
+	 * @return true if the i-th and j-th edges of the polygon are disjoint. Runs in O(1) time.
+	 * @throws IndexOutOfBoundsException
+	 *             if i or j are outside the index range [0..n-1].
+	 */
+	public boolean disjointEdges(int i, int j) throws IndexOutOfBoundsException {
+		try {
+			if (j - i > 1 && j - i < n-1 ) {
+				return true;
+			}
+		}
+		catch (IndexOutOfBoundsException e) {
+			System.out.println("Catch Exception");
+		}
+		return false; // TODO: replace this line with a try-catch code
+	}
+
+	/**
+	 * This method verifies whether the claimed "simple-polygon" is indeed simple.
+	 * 
+	 * @return true if the polygon is simple. Runs in O(n^2) time.
+	 */
+	public boolean isSimple() {
+		return true; // TODO: replace this line with your code
+	}
+
+	/************ perimeter & area ***************/
+
+	/**
+	 * 
+	 * @return the sum of the edge lengths of the polygon. Runs in O(n) time.
+	 */
+	public double perimeter() {
+		return 0; // TODO: replace this line with your code
+	}
+
+	/**
+	 * 
+	 * @return area of the polygon interior. Runs in O(n) time not counting the simplicity test.
+	 * @throws NonSimplePolygonException
+	 *             if the polygon is non-simple.
+	 */
+	public double area() throws NonSimplePolygonException {
+		return 0; // TODO: replace this line with a try-catch code
+	}
+
+}
