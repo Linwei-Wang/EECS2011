@@ -17,4 +17,9 @@ package A1;
  */
 public class ConvexPolygon extends SimplePolygon {
 	// TODO: add your code here
+	public boolean isConvex() throws NonSimplePolygonException {
+		
+		return false;
+		
+	}
 }

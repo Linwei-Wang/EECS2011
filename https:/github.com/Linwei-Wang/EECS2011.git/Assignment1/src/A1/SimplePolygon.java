@@ -146,8 +146,47 @@ public class SimplePolygon implements Polygon {
      */
     public static boolean disjointSegments(Point2D.Double a, Point2D.Double b,
             Point2D.Double c, Point2D.Double d) {
+    	double max1,max2,max3,max4;
+    	double min1,min2,min3,min4;
+       if (a.x > b.x) {
+    	   max1 = a.x;
+    	   min1 = b.x;
+       }
+       else {
+    	   max1 = b.x;
+    	   min1 = a.x;
+       }
+       if (c.x > d.x) {
+    	   max2 = c.x;
+    	   min2 = d.x;
+       }
+       else {
+    	   max2 = d.x;
+    	   min2 = c.x;
+       }
+       if (a.y > b.y) {
+    	   max3 = a.y;
+    	   min3 = b.y;
+       }
+       else {
+    	   max3 = b.y;
+    	   min3 = a.y;
+       }
+       if (c.y > d.y) {
+    	   max4 = c.y;
+    	   min4 = d.y;
+       }
+       else {
+    	   max4 = d.y;
+    	   min4 = c.y;
+       }
+       if (max1 < min2) return true;
+       if (max3 < min4) return true;
+       if (delta(c,b,a)*delta(b,d,a) <0) return true;
+       if (delta(a,d,c)*delta(d,b,c)<0) return true;
        
-                return true; // TODO: replace this line with your code
+       	
+                return false; // TODO: replace this line with your code
     }
 
     /**
@@ -194,7 +233,12 @@ public class SimplePolygon implements Polygon {
      * @return the sum of the edge lengths of the polygon. Runs in O(n) time.
      */
     public double perimeter() {
-        return 0; // TODO: replace this line with your code
+    	double distance = 0;
+    	for (int i=0; i < n-1;i++) {
+    		distance += vertices[i].distance(vertices[i+1]);
+    	}
+    	distance += vertices[n-1].distance(vertices[0]);
+        return distance; // TODO: replace this line with your code
     }
 
     /**
@@ -206,10 +250,12 @@ public class SimplePolygon implements Polygon {
     public double area() throws NonSimplePolygonException {
         if (isSimple()) {
         double result = 0;
+        java.awt.geom.Point2D.Double a = vertices[0];
         vertices[0]=new Point2D.Double(0.0, 0.0);
         for (int i = 1;i<this.getSize()-1;i++) {
         result += SimplePolygon.delta(vertices[0], vertices[i], vertices[i+1]);
         }
+        result += SimplePolygon.delta(vertices[0], vertices[n-1], a);
         result = 0.5*Math.abs(result);
         return result;
         }
