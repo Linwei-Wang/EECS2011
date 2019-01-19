@@ -14,9 +14,9 @@ import java.util.Scanner;
  * The class SimplePolygon implements the Polygon interface.
  *
  * It is intended to be further extended by ConvexPolygon.
- *
+ 
  * @author Andy Mirzaian
- */
+ *////
 public class SimplePolygon implements Polygon {
 
     /********* protected fields ************************/
@@ -101,7 +101,7 @@ public class SimplePolygon implements Polygon {
         }
         catch (IndexOutOfBoundsException e)
         {
-            System.out.println("IndexOutOfBoundsException catch");
+            System.out.println("IndexOutOfBoulllndsException catch");
         }
         return null; // TODO: replace this line with a try-catch code
     }
