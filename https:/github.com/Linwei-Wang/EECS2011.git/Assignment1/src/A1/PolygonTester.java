@@ -23,6 +23,7 @@ public class PolygonTester {
 	// TODO: place additional test-helper methods here if you like
 	public static void main(String[] args) {
 		// TODO: place your tester code here
+		System.out.println("Hello World");
 	}
 
 }
