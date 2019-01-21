@@ -68,13 +68,13 @@ public class SimplePolygon implements Polygon {
         String b = a.nextLine();
         String[] aa = b.split(" ");
         int size = Integer.parseInt(aa[0]);
-        a.close();
+        
          // TODO: replace this line with your code
         SimplePolygon p = new SimplePolygon(size);
         p.vertices = new Point2D.Double[size];
         // TODO: populate p.vertices[0..size-1] from input
-        for (int i = 1; i < size-1; i++) {
-            p.vertices[i-1] = new Point2D.Double(Double.parseDouble(aa[i]), Double.parseDouble(aa[i+1]));
+        for (int i = 1; i <= size; i++) {
+            p.vertices[i-1] = new Point2D.Double(Double.parseDouble(aa[2*(i-1)+1]), Double.parseDouble(aa[2*(i-1)+2]));
         }
         return p;
     }
@@ -132,6 +132,7 @@ public class SimplePolygon implements Polygon {
             Point2D.Double c) {
         double deltaa = 0;
         deltaa = a.getX()*(b.getY()-c.getY())-b.getX()*(a.getY()-c.getY())+c.getX()*(a.getY()-b.getY());
+        System.out.println(a.getX());
         return deltaa; // TODO: replace this line with your code
     }
 
@@ -234,10 +235,10 @@ public class SimplePolygon implements Polygon {
      */
     public double perimeter() {
     	double distance = 0;
-    	for (int i=0; i < n-1;i++) {
+    	/*for (int i=0; i < n-1;i++) {
     		distance += vertices[i].distance(vertices[i+1]);
-    	}
-    	distance += vertices[n-1].distance(vertices[0]);
+    	}*/
+    	distance += vertices[0].distance(vertices[n-1]);
         return distance; // TODO: replace this line with your code
     }
 
