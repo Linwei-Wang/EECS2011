@@ -7,7 +7,9 @@
  **********************************************************/
 package A1;
 
+import java.awt.List;
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -64,20 +66,23 @@ public class SimplePolygon implements Polygon {
      * @return an unverified simple-polygon instance
      */
     public static SimplePolygon getNewPoly() {
-        Scanner a = new Scanner(System.in);
-        String b = a.nextLine();
-        String[] aa = b.split(" ");
-        int size = Integer.parseInt(aa[0]);
-        
-         // TODO: replace this line with your code
-        SimplePolygon p = new SimplePolygon(size);
-        p.vertices = new Point2D.Double[size];
-        // TODO: populate p.vertices[0..size-1] from input
-        for (int i = 1; i <= size; i++) {
-            p.vertices[i-1] = new Point2D.Double(Double.parseDouble(aa[2*(i-1)+1]), Double.parseDouble(aa[2*(i-1)+2]));
+    	
+            Scanner a = new Scanner(System.in);
+            String b = a.nextLine();
+            String[] aa = b.split(" ");
+            int size = Integer.parseInt(aa[0]);
+            
+             // TODO: replace this line with your code
+            SimplePolygon p = new SimplePolygon(size);
+            p.vertices = new Point2D.Double[size];
+            // TODO: populate p.vertices[0..size-1] from input
+            for (int i = 1; i <= size; i++) {
+                p.vertices[i-1] = new Point2D.Double(Double.parseDouble(aa[2*(i-1)+1]), Double.parseDouble(aa[2*(i-1)+2]));
+            }
+           // System.out.println(p.vertices[0]);
+            return p;
         }
-        return p;
-    }
+    
 
     /**
      *
@@ -111,9 +116,9 @@ public class SimplePolygon implements Polygon {
      */
     @Override
     public String toString() {
-        String a = "";
-        for (int i = 0 ;i < n ; i++){
-            a = vertices[i] + "," ;
+        String a = " ";
+        for (int i = 0 ;i < n-1 ; i++){
+            a += vertices[i] + "," ;
         }
         return a; // TODO: replace this line with your code
     }
@@ -235,9 +240,9 @@ public class SimplePolygon implements Polygon {
      */
     public double perimeter() {
     	double distance = 0;
-    	/*for (int i=0; i < n-1;i++) {
+    	for (int i=0; i < n-1;i++) {
     		distance += vertices[i].distance(vertices[i+1]);
-    	}*/
+    	}
     	distance += vertices[0].distance(vertices[n-1]);
         return distance; // TODO: replace this line with your code
     }
