@@ -18,35 +18,41 @@ import java.awt.geom.Point2D;
  * @author Andy Mirzaian
  */
 public class ConvexPolygon extends SimplePolygon {
+	 public ConvexPolygon()
+	 {
+	      super.getNewPoly();
+	 }
 	// TODO: add your code here
+	@Override
+	public double area() throws NonSimplePolygonException {
+		double result =0;
+		if (isSimple()) {
+
+			Point2D.Double a = new Point2D.Double(0, 0);
+
+			for (int i = 0; i < n; i++) {
+			
+					result += SimplePolygon.delta(a, vertices[i], vertices[i + 1]);
+				}
+
+		}
+			
+
+		 else {
+			throw new NonSimplePolygonException("NonSimple");
+		}
+		 result = 0.5 * Math.abs(result);
+		return result;
+
 	
+		
+	}
+	
+
 	public boolean isConvex() throws NonSimplePolygonException {
-		double result2=0;
-		double result = 0;
-		if (isSimple()) {
-	        
-	        java.awt.geom.Point2D.Double a = vertices[0];
-	        vertices[0]=new Point2D.Double(0.0, 0.0);
-	        for (int i = 1;i<this.getSize()-1;i++) {
-	        result += SimplePolygon.delta(vertices[0], vertices[i], vertices[i+1]);
-	        }
-	        result += SimplePolygon.delta(vertices[0], vertices[n-1], a);
-	        result = 0.5*Math.abs(result);
-	        }
-	        else {
-	            throw new NonSimplePolygonException("NonSimplepolygonException"); // TODO: replace this line with a try-catch code
-	        }
-		if (isSimple()) {
-	        vertices[0]=new Point2D.Double(0.0, 0.0);
-	        for (int i = 1;i<this.getSize()-1;i++) {
-	        result2 += SimplePolygon.delta(vertices[0], vertices[i], vertices[i+1]);
-	        }
-	       
-	     
-	    }
-		if (result < result2) return false;
-		else return  true;
-	    }
-	
+		if (super.area() < this.area())
+		return false;
+		else return true;
+	}
 
 }

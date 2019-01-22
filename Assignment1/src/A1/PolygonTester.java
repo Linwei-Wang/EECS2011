@@ -23,19 +23,17 @@ public class PolygonTester {
 	// TODO: place additional test-helper methods here if you like
 	public static void main(String[] args) throws NonSimplePolygonException {
 		// TODO: place your tester code here
-	     ConvexPolygon c1 = new ConvexPolygon();
-	     System.out.println(SimplePolygon.getNewPoly().vertices[0]);
-	     //  String s = SimplePolygon.getNewPoly().toString();
-	       //System.out.println("*******************FOR P1*******************");
-	      // System.out.println("Coordinates of p1 is: " + s);
-	       //System.out.println("The size of p1 is: " + SimplePolygon.getNewPoly().getSize());
-	       //System.out.println("The second last vertex of p1 is: " + SimplePolygon.getNewPoly().getVertex(1));
-	       //System.out.println("The last vertex of p1 is: " + SimplePolygon.getNewPoly().getVertex(2));
-	       //System.out.println("Disjoint Edges between the 2nd last and last edges: " + SimplePolygon.getNewPoly().disjointEdges(0, 1));
-	       //System.out.println("p1 is simple? " + SimplePolygon.getNewPoly().isSimple());
-	       //System.out.println("The perimeter of this polygon is: " + SimplePolygon.getNewPoly().perimeter());
-	       //System.out.println("Is this polygon convex? " + c1.isConvex())
-	       //System.out.println("The area of this polygon is: " + SimplePolygon.getNewPoly().area());
+	       //ConvexPolygon a =  new ConvexPolygon();
+	      SimplePolygon a = SimplePolygon.getNewPoly();
+	  	       String s = a.toString();
+	  	       System.out.println("Coordinates is: " + s);
+	       System.out.println("The size is: " + a.getSize());
+	       System.out.println("The second vertex is: " + a.getVertex(1));
+	       System.out.println("Disjoint Edges between the first and second: " + a.disjointEdges(0, 2));
+	       System.out.println("Is simple? " + a.isSimple());
+	       System.out.println("The perimeter is: " + a.perimeter());
+	      // System.out.println("Is convex? " + ((a.isConvex())));
+	       System.out.println("The area is: " + a.area());
 	}
 
 }
