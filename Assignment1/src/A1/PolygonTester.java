@@ -24,7 +24,7 @@ public class PolygonTester {
 	public static void main(String[] args) throws NonSimplePolygonException {
 		// TODO: place your tester code here
 	       //ConvexPolygon a =  new ConvexPolygon();
-	      SimplePolygon a = SimplePolygon.getNewPoly();
+	      ConvexPolygon a = ConvexPolygon.getNewPoly();
 	  	       String s = a.toString();
 	  	       System.out.println("Coordinates is: " + s);
 	       System.out.println("The size is: " + a.getSize());
@@ -32,7 +32,7 @@ public class PolygonTester {
 	       System.out.println("Disjoint Edges between the first and second: " + a.disjointEdges(0, 2));
 	       System.out.println("Is simple? " + a.isSimple());
 	       System.out.println("The perimeter is: " + a.perimeter());
-	      // System.out.println("Is convex? " + ((a.isConvex())));
+	       System.out.println("Is convex? " + ((a.isConvex())));
 	       System.out.println("The area is: " + a.area());
 	}
 
