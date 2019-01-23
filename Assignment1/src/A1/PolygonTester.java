@@ -26,13 +26,16 @@ public class PolygonTester {
 	       //ConvexPolygon a =  new ConvexPolygon();
 	      ConvexPolygon a = ConvexPolygon.getNewPoly();
 	  	       String s = a.toString();
-	  	       System.out.println("Coordinates is: " + s);
+	  	       System.out.println("All Coordinates are: " + s);
 	       System.out.println("The size is: " + a.getSize());
 	       System.out.println("The second vertex is: " + a.getVertex(1));
-	       System.out.println("Disjoint Edges between the first and second: " + a.disjointEdges(0, 2));
+	       System.out.println("The last vertex is: " + a.getVertex(a.getSize()-1));
+	       System.out.println("Disjoint Edges between the first and second: " + a.disjointEdges(0, 1));
+	       System.out.println("Disjoint Edges between the first and third: " + a.disjointEdges(0, 2));
+	       System.out.println("Disjoint Edges between the first and last: " + a.disjointEdges(0, a.getSize()-1));
 	       System.out.println("Is simple? " + a.isSimple());
-	       System.out.println("The perimeter is: " + a.perimeter());
 	       System.out.println("Is convex? " + ((a.isConvex())));
+	       System.out.println("The perimeter is: " + a.perimeter()); 
 	       System.out.println("The area is: " + a.area());
 	}
 

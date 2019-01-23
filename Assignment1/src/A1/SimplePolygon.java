@@ -212,14 +212,21 @@ public class SimplePolygon implements Polygon {
 	 */
 	public boolean isSimple() {
 		boolean result = true;
-		for (int i = 0; i < this.getSize() - 1; i++) {
+		for (int i = 0; i < this.getSize() - 3; i++) {
 			for (int j = i + 2; j < this.getSize() - 1; j++) {
-				if (this.disjointEdges(i, j) == false) {
+				if (SimplePolygon.disjointSegments(vertices[i], vertices[i + 1], vertices[i + 2],
+						vertices[i + 3]) == false) {
 					result = false;
 				}
+
+			}
+			if (SimplePolygon.disjointSegments(vertices[n - 3], vertices[n - 2], vertices[n - 1],
+					vertices[0]) == false) {
+				result = false;
+
 			}
 		}
-		return result; // TODO: replace this line with your code
+		return result;
 	}
 
 	/************ perimeter & area ***************/
