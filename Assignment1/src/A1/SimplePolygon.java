@@ -146,7 +146,7 @@ public class SimplePolygon implements Polygon {
 	public static boolean disjointSegments(Point2D.Double a, Point2D.Double b, Point2D.Double c, Point2D.Double d) {
 		double max1, max2, max3, max4;
 		double min1, min2, min3, min4;
-		if (a.x > b.x) {
+		/*if (a.x > b.x) {
 			max1 = a.x;
 			min1 = b.x;
 		} else {
@@ -177,7 +177,7 @@ public class SimplePolygon implements Polygon {
 		if (max1 < min2)
 			return true;
 		if (max3 < min4)
-			return true;
+			return true;*/
 		if (delta(c, b, a) * delta(b, d, a) < 0)
 			return true;
 		if (delta(a, d, c) * delta(d, b, c) < 0)
