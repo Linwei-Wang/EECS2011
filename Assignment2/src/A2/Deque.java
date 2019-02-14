@@ -1,13 +1,20 @@
 package A2;
 
 public interface Deque<E> {
-int size();
-boolean isEmpty();
-E first();
-E last();
-void addFirst(E e);
-void addLast(E e);
-E removeFirst();
-E removeLast();
+	int size();
+
+	boolean isEmpty();
+
+	E first();
+
+	E last();
+
+	void addFirst(E e);
+
+	void addLast(E e);
+
+	E removeFirst();
+
+	E removeLast();
 
 }
