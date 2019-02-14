@@ -102,32 +102,32 @@ public class NewDeque implements Deque<Object> {
 		return a.pop();
 	}
 
-	public static void main(String args[]) {
-		NewDeque c = new NewDeque();
-		int j = 15;
-		System.out.println("Input   " + j + "   Numbers");
-		System.out.println("before adding numbers, c is empty: " + c.isEmpty());
-		System.out.println("Adding numbers to stack from back");
-		for (int i = 0; i <j; i++) {
-			c.addLast(i);
-		}
-		System.out.println("after adding numbers, c is empty: " + c.isEmpty());
-		//System.out.println("this is front" + " 0 1 2 3 4 5 6 7 8 9 " + "this is back");
-		System.out.println("first = " + c.first());
-		System.out.println("last = " + c.last());
-		c.removeLast();
-		System.out.println("Removing Last");
-		System.out.println("last = " + c.last());
-		c.removeFirst();
-		System.out.println("Removing First");
-		System.out.println("first = " + c.first());
-		System.out.println("Adding First and last: zzzzz and ccccc");
-		c.addFirst("zzzzz");
-		c.addLast("ccccc");
-		System.out.println("last = " + c.last());
-		System.out.println("first = " + c.first());
-		System.out.println("Size = " + c.size());
+// 	public static void main(String args[]) {
+// 		NewDeque c = new NewDeque();
+// 		int j = 15;
+// 		System.out.println("Input   " + j + "   Numbers");
+// 		System.out.println("before adding numbers, c is empty: " + c.isEmpty());
+// 		System.out.println("Adding numbers to stack from back");
+// 		for (int i = 0; i <j; i++) {
+// 			c.addLast(i);
+// 		}
+// 		System.out.println("after adding numbers, c is empty: " + c.isEmpty());
+// 		//System.out.println("this is front" + " 0 1 2 3 4 5 6 7 8 9 " + "this is back");
+// 		System.out.println("first = " + c.first());
+// 		System.out.println("last = " + c.last());
+// 		c.removeLast();
+// 		System.out.println("Removing Last");
+// 		System.out.println("last = " + c.last());
+// 		c.removeFirst();
+// 		System.out.println("Removing First");
+// 		System.out.println("first = " + c.first());
+// 		System.out.println("Adding First and last: zzzzz and ccccc");
+// 		c.addFirst("zzzzz");
+// 		c.addLast("ccccc");
+// 		System.out.println("last = " + c.last());
+// 		System.out.println("first = " + c.first());
+// 		System.out.println("Size = " + c.size());
 
-	}
+// 	}
 
 }
